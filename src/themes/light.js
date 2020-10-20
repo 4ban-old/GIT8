@@ -16,9 +16,9 @@ const lightTheme = {
   loading: "#f11946",
   colors: {
     primary: "#8dbbf2",
-    secondary: "#ff0000",
-    accent: "#ff0000",
-    dark: "#ff0000",
+    secondary: "#4D95EA",
+    accent: "#C9EBF9",
+    dark: "#173DE2",
     green: "#2a9d8f",
     red: "#facedf",
     blue: "#0077b6",

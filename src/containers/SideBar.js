@@ -25,11 +25,13 @@ const SideBar = () => {
   return (
     <>
       <Title size='1em' sidebar={true}/>
+      <Divider />
       <Avatar src={user?.avatar_url || ''} url={user?.html_url || ''} />
       <Divider />
       <ThemeSwitch />
       <Button to="/anywhere" text='404'/>
       <Spacer />
+      <Divider />
       <Button to="/settings" icon={<Settings size='32'/>}/>
       <Logout />
     </>
