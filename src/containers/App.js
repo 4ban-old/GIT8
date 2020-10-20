@@ -11,10 +11,10 @@ import { GlobalStyle } from "@/components/_styled/GlobalStyle";
 import { GitHubAuthStatus } from "@/helpers/auth.helpers.js";
 import store from "@/store";
 
-import Notifications from "@/components/Notifications";
-import Settings from "@/components/Settings";
-import Login from "@/components/Login";
-import Error404 from "@/components/Error404";
+import Notifications from "@/containers/Notifications";
+import Settings from "@/containers/Settings";
+import Login from "@/containers/Login";
+import Error404 from "@/containers/Error404";
 import Loading from "@/components/Loading";
 
 const App = () => {

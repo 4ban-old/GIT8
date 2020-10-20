@@ -5,5 +5,6 @@ export const PageContainer = styled.div`
   height: 100vh;
   box-sizing: border-box;
   overflow: hidden;
-  margin: 0px;
+  margin: 0;
+  padding: 0;
 `;

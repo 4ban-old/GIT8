@@ -2,9 +2,9 @@ import { createGlobalStyle, css } from "styled-components";
 
 export const GlobalStyle = createGlobalStyle`
   body {
-    background: ${(props) => props.theme.background};
+    background-color: ${(props) => props.theme.background};
     color: ${(props) => props.theme.text};
-    font-size: 14px;
+    font-size: 1em;
     line-height: 1.5;
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
     margin: 0;

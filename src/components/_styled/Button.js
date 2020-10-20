@@ -2,37 +2,29 @@ import { Link } from "react-router-dom";
 import styled from "styled-components";
 
 export const LinkButton = styled(Link)`
-  background: ${(props) => props.theme.background};
-  color: ${(props) => props.theme.text};
-  padding: 0.25em 1em;
-  border: 2px solid palevioletred;
-  border-radius: 3px;
-  text-decoration: none;
-
-  &:hover {
-    background: black;
-  }
-`;
-
-export const Button = styled.button`
-  display:inline-block;
-  padding:0.5em 3em;
-  border:0.16em solid #FFFFFF;
-  margin:0 0.3em 0.3em 0;
+  display: inline-block;
+  padding: 0;
+  margin: 0.2em;
+  width: 100%;
+  border: none;
   box-sizing: border-box;
-  text-decoration:none;
-  text-transform:uppercase;
-  font-weight:400;
-  text-align:center;
+  cursor: pointer;
+  text-decoration: none;
+  text-transform: uppercase;
+  font-weight: 700;
+  text-align: center;
   transition: all 0.15s;
-  background: ${(props) => props.theme.colors.primary};
-  color: ${(props) => props.theme.colors.accent};
+  background: ${(props) => props.theme.colors.secondary};
+  color: ${(props) => props.theme.text};
+  border-radius: 0.3em;
+
   &:hover {
-    color: ${(props) => props.theme.colors.secondary};
-    border-color:${(props) => props.theme.colors.secondary};
+    opacity: 0.8;
+    color: ${(props) => props.theme.colors.accent};
   }
 `;
 
+// Login buttons: Shine and text
 export const LoginButton = styled.button`
   padding: 0.5rem 2rem;
   margin: 0.3rem;

@@ -5,7 +5,7 @@ import { Redirect, Route } from "react-router-dom";
 import { PageContainer } from "@/components/_styled/PageContainer";
 import { MainContainer } from "@/components/_styled/MainContainer";
 import { SideBarContainer } from "@/components/_styled/SideBarContainer";
-import SideBar from "@/components/SideBar";
+import SideBar from "@/containers/SideBar";
 
 export const PrivateRoute = ({ component: Component, ...rest }) => {
   const token = useSelector((state) => state.authReducer.token);
