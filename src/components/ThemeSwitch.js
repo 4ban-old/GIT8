@@ -4,11 +4,19 @@ import Switch from "react-switch";
 
 import { setDarkTheme } from "@/store/actions/theme.actions";
 
+import { Sun } from '@styled-icons/fa-solid/Sun'
+import { Moon } from '@styled-icons/evaicons-solid/Moon'
+
 const ThemeSwitch = () => {
   const dispatch = useDispatch();
   const isDark = useSelector((state) => state.themeReducer.isDark);
 
-  return <Switch onChange={() => dispatch(setDarkTheme(!isDark))} checked={isDark}/>
-};
+  return (<Switch
+            onChange={() => dispatch(setDarkTheme(!isDark))}
+            checked={isDark}
+            checkedIcon={<Moon size='18' />}
+            uncheckedIcon={<Sun size='18' />}
+          />)
 
+};
 export default ThemeSwitch;
