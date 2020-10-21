@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { getUserAction } from "@/store/actions";
+
+import { getUserAction, fetchNotifications } from "@/store/actions";
 
 import { Settings } from "@styled-icons/ionicons-outline/Settings";
 import { Notifications } from '@styled-icons/ionicons-outline/Notifications'
@@ -18,11 +19,19 @@ import Spacer from "@/components/Spacer";
 const SideBar = () => {
   const dispatch = useDispatch();
   const user = useSelector((state) => state.userReducer.user);
-  console.log(user);
+  // console.log(user);
 
   useEffect(() => {
     dispatch(getUserAction());
   }, [dispatch]);
+
+  useEffect(() => {
+    const interval = 60000;
+    const timer = setInterval(() =>  dispatch(fetchNotifications()), interval);
+    return () => {
+      clearInterval(timer)
+    }
+  }, []);
 
   return (
     <>

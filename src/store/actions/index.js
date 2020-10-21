@@ -1,20 +1,18 @@
 import api from "../../helpers/api.helpers";
 import store from "@/store";
 
-import { LOGIN_SUCCESS, LOGIN_FAILURE, LOGOUT, LOADING, LOADING_DONE, SUCCESS, ERROR, CLEAR, GET_USER, SET_DARK_THEME } from "./types";
+import { LOGIN, LOGOUT, LOADING, LOADING_DONE, GET_USER, SET_DARK_THEME } from "./types";
 
 // Auth
 export const loginSuccess = (token) => ({
-  type: LOGIN_SUCCESS,
+  type: LOGIN,
   payload: { token },
 });
 
-export const loginFailure = (error) => ({
-  type: LOGIN_FAILURE,
-  payload: { error },
-});
-
-export const logout = () => ({ type: LOGOUT });
+export const logout = () => (dispatch) => {
+  localStorage.clear();
+  dispatch({ type: LOGOUT });
+};
 
 // Loading
 export const setLoading = (bool) => ({
@@ -32,7 +30,7 @@ export const getUserAction = () => (dispatch) => {
       },
     })
     .then((response) => {
-      console.log("GET_USER: ", response);
+      // console.log("GET_USER: ", response);
       dispatch({ type: GET_USER, payload: { user: response.data } });
       // dispatch(setLoading(false))
     })
@@ -49,16 +47,6 @@ export const setDarkTheme = (val) => (dispatch) => {
   dispatch({ type: SET_DARK_THEME, payload: { val } });
 };
 
+export const fetchNotifications = () => (dispatch) => {
 
-
-
-
-
-// export const success = (type, msg) => ({
-//   type: SUCCESS,
-//   payload: { type, msg },
-// });
-
-// export const error = (type, msg) => ({ type: ERROR, payload: { type, msg } });
-
-// export const clear = () => ({ type: CLEAR });
+};

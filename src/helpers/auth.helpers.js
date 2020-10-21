@@ -4,7 +4,7 @@ const BrowserWindow = remote.BrowserWindow;
 const dialog = remote.dialog;
 
 import Constants from "./constants";
-import { loginSuccess, loginFailure } from "@/store/actions";
+import { loginSuccess, logout } from "@/store/actions";
 
 export const GitHubAuthStatus = (store) => {
   ipcRenderer.on("github-oauth-success", async (event, token) => {
@@ -12,9 +12,7 @@ export const GitHubAuthStatus = (store) => {
     store.dispatch(loginSuccess(token));
   });
   ipcRenderer.on("github-oauth-failure", async (event, err) => {
-    // TODO: clear the token only
-    localStorage.clear();
-    store.dispatch(loginFailure(err));
+    store.dispatch(logout());
   });
 };
 
