@@ -28,7 +28,7 @@ const SideBar = () => {
     <>
       <Title size='1em' sidebar={true}/>
       <Avatar src={user?.avatar_url || ''} url={user?.html_url || ''} />
-      <Button to="/" icon={<Sync size='32' />}/>
+      <Button icon={<Sync size='32' />}/>
       <Divider />
       <ThemeSwitch />
       <Button to="/" icon={<Notifications size='32' />}/>
