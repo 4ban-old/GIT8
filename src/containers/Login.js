@@ -17,7 +17,7 @@ import LogoImage from "@/assets/images/app-icon.png";
 
 const Login = () => {
   const isAuthenticated = useSelector(
-    (state) => state.authReducer.token !== null
+    (state) => state.sessionReducer.token !== null
   );
   if (isAuthenticated) return <Redirect to="/" />;
   return (

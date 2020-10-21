@@ -9,7 +9,7 @@ import { Moon } from '@styled-icons/evaicons-solid/Moon'
 
 const ThemeSwitch = () => {
   const dispatch = useDispatch();
-  const isDark = useSelector((state) => state.themeReducer.isDark);
+  const isDark = useSelector((state) => state.settingsReducer.isDark);
 
   return (<Switch
             onChange={() => dispatch(setDarkTheme(!isDark))}

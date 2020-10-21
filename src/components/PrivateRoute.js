@@ -10,7 +10,7 @@ import { SideBarContainer } from "@/components/_styled/SideBarContainer";
 import SideBar from "@/containers/SideBar";
 
 export const PrivateRoute = ({ component: Component, ...rest }) => {
-  const token = useSelector((state) => state.authReducer.token);
+  const token = useSelector((state) => state.settingsReducer.token);
   const isAuthenticated = token !== null;
 
   return (

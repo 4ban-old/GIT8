@@ -17,7 +17,7 @@ import Login from "@/containers/Login";
 import Error404 from "@/containers/Error404";
 
 const App = () => {
-  const isDark = useSelector((state) => state.themeReducer.isDark);
+  const isDark = useSelector((state) => state.settingsReducer.isDark);
 
   useEffect(() => {
     GitHubAuthStatus(store);

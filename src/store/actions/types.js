@@ -7,3 +7,5 @@ export const GET_USER = "GET_USER";
 export const SET_DARK_THEME = "SET_THEME";
 //Loading
 export const LOADING = "LOADING";
+
+export const SET_REQUEST_LIMIT = "SET_REQUEST_LIMIT"

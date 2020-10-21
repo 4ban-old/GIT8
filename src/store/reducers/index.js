@@ -1,13 +1,9 @@
 import { combineReducers } from "redux";
 
-import authReducer from "./auth.reducer";
-import userReducer from "./user.reducer";
-import themeReducer from "./theme.reducer";
-import loadingReducer from "./loading.reducer";
+import sessionReducer from './session.reducer'
+import settingsReducer from './settings.reducer'
 
 export default combineReducers({
-  authReducer,
-  userReducer,
-  themeReducer,
-  loadingReducer,
+  sessionReducer,
+  settingsReducer
 });

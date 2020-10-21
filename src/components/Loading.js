@@ -5,7 +5,7 @@ import LoadingBar from "react-top-loading-bar";
 
 const Loading = (props) => {
   const ref = useRef(null)
-  const isLoading = useSelector((state) => state.loadingReducer.loading)
+  const isLoading = useSelector((state) => state.sessionReducer.loading)
 
   useEffect(() => {
     if (isLoading) ref.current.continuousStart()

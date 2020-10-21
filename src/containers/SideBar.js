@@ -18,7 +18,7 @@ import Spacer from "@/components/Spacer";
 
 const SideBar = () => {
   const dispatch = useDispatch();
-  const user = useSelector((state) => state.userReducer.user);
+  const user = useSelector((state) => state.sessionReducer.user);
   // console.log(user);
 
   useEffect(() => {
