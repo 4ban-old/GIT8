@@ -15,7 +15,6 @@ import Notifications from "@/containers/Notifications";
 import Settings from "@/containers/Settings";
 import Login from "@/containers/Login";
 import Error404 from "@/containers/Error404";
-import Loading from "@/components/Loading";
 
 const App = () => {
   const isDark = useSelector((state) => state.themeReducer.isDark);
@@ -27,7 +26,6 @@ const App = () => {
   return (
     <ThemeProvider theme={isDark ? darkTheme : lightTheme}>
       <GlobalStyle />
-      {/* <Loading /> */}
       <Switch>
         <PrivateRoute exact path="/" component={Notifications} />
         <PrivateRoute exact path="/settings" component={Settings} />

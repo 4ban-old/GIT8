@@ -2,10 +2,10 @@ import { Link } from "react-router-dom";
 import styled from "styled-components";
 
 export const LinkButton = styled(Link)`
-  display: inline-block;
-  padding: 0;
+  display: block;
+  padding: 0.5em;
   margin: 0.2em;
-  width: 100%;
+  height: 3rem;
   border: none;
   box-sizing: border-box;
   cursor: pointer;
@@ -14,13 +14,13 @@ export const LinkButton = styled(Link)`
   font-weight: 700;
   text-align: center;
   transition: all 0.15s;
-  background: ${(props) => props.theme.colors.secondary};
   color: ${(props) => props.theme.text};
   border-radius: 0.3em;
 
   &:hover {
     opacity: 0.8;
     color: ${(props) => props.theme.colors.accent};
+    background: ${(props) => props.theme.colors.secondary};
   }
 `;
 
@@ -28,6 +28,7 @@ export const LinkButton = styled(Link)`
 export const LoginButton = styled.button`
   padding: 0.5rem 2rem;
   margin: 0.3rem;
+  line-height: 3;
   outline: none;
   border: none;
   border-radius: 100rem;
@@ -35,7 +36,7 @@ export const LoginButton = styled.button`
   cursor: pointer;
   text-decoration: none;
   text-transform: uppercase;
-  font-weight: 400;
+  font-weight: 700;
   text-align: center;
   &:active {
     transform: scale(1.03) translateY(3px);

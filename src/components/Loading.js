@@ -1,42 +1,19 @@
-import React, { useState } from "react";
+import React, { useRef, useEffect } from "react";
+import { useSelector } from "react-redux";
 import { withTheme } from "styled-components";
 import LoadingBar from "react-top-loading-bar";
 
 const Loading = (props) => {
-  // TODO will watch for isFetching var in redux and show the progress bar
-  const [progress, setProgress] = useState(50);
+  const ref = useRef(null)
+  const isLoading = useSelector((state) => state.loadingReducer.loading)
 
-  return (
-    <LoadingBar
-      color={props.theme.loading || "#232323"}
-      progress={progress}
-      onLoaderFinished={() => setProgress(0)}
-      shadow={true}
-    />
-  );
+  useEffect(() => {
+    if (isLoading) ref.current.continuousStart()
+    else ref.current.complete()
+  }, [isLoading]);
+
+
+  return <LoadingBar color={props.theme.loading || "#232323"} ref={ref} />;
 };
 
 export default withTheme(Loading);
-
-// import React, { useRef } from 'react'
-// import LoadingBar from 'react-top-loading-bar'
-
-// const App = () => {
-//   const ref = useRef(null)
-
-//   return (
-//     <div>
-//       <LoadingBar color='#f11946' ref={ref} />
-//       <button onClick={() => ref.current.continuousStart()}>
-//         Start Continuous Loading Bar
-//       </button>
-//       <button onClick={() => ref.current.staticStart()}>
-//         Start Static Loading Bar
-//       </button>
-//       <button onClick={() => ref.current.complete()}>Complete</button>
-//       <br />
-//     </div>
-//   )
-// }
-
-// export default App

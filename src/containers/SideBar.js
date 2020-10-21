@@ -1,8 +1,10 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { getUserAction } from "@/store/actions/user.actions";
+import { getUserAction } from "@/store/actions";
 
-import { Settings } from "@styled-icons/material/Settings";
+import { Settings } from "@styled-icons/ionicons-outline/Settings";
+import { Notifications } from '@styled-icons/ionicons-outline/Notifications'
+import { Sync } from '@styled-icons/ionicons-outline/Sync'
 
 import Logout from "@/components/Logout";
 import Button from "@/components/Button";
@@ -25,10 +27,11 @@ const SideBar = () => {
   return (
     <>
       <Title size='1em' sidebar={true}/>
-      <Divider />
       <Avatar src={user?.avatar_url || ''} url={user?.html_url || ''} />
+      <Button to="/" icon={<Sync size='32' />}/>
       <Divider />
       <ThemeSwitch />
+      <Button to="/" icon={<Notifications size='32' />}/>
       <Button to="/anywhere" text='404'/>
       <Spacer />
       <Divider />

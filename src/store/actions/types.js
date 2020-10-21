@@ -10,3 +10,5 @@ export const LOGOUT = "LOGOUT";
 export const GET_USER = "GET_USER";
 //Theme
 export const SET_DARK_THEME = "SET_THEME";
+//Loading
+export const LOADING = "LOADING";

@@ -11,6 +11,7 @@ import {
   LoginCenteredContainer,
 } from "@/components/_styled/LoginContainer";
 import Title from "@/components/Title";
+import Version from "@/components/Version";
 import { Logo } from "@/components/_styled/Logo";
 import LogoImage from "@/assets/images/app-icon.png";
 
@@ -23,9 +24,10 @@ const Login = () => {
     <LoginContainer>
       <LoginCenteredContainer>
         <Logo src={LogoImage} width="256px" height="256px" />
+        <Version />
         <Title size='2em' />
         <LoginButtonPurple onClick={GitHubAuth}>
-          Sign in with <Github size="18" />
+          Sign in with <Github size="32" />
         </LoginButtonPurple>
       </LoginCenteredContainer>
     </LoginContainer>
