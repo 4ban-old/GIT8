@@ -29,11 +29,7 @@ export const setRequestLimit = (limit) => ({
 export const getUserAction = () => (dispatch) => {
   // dispatch(setLoading(true))
   api
-    .get("/user", {
-      headers: {
-        Authorization: `token ${store.getState().settingsReducer.token}`,
-      },
-    })
+    .get("/user", {})
     .then((response) => {
       // console.log("GET_USER: ", response);
       dispatch(setRequestLimit(response.headers['x-ratelimit-remaining']))

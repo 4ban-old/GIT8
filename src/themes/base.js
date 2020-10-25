@@ -1,8 +1,10 @@
 const baseTheme = {
   app: {
     fontFamily: "-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif",
+    fontSize: '1em',
     background: "#fcfcfc",
     text: "#24292e",
+    loading: "#f11946",
     login: {
       primary: "#6441A5",
       secondary: "#2a0845",
@@ -15,7 +17,6 @@ const baseTheme = {
       white: "#e4e4e4",
       black: "#000000",
     },
-    loading: "#f11946",
     colors: {
       primary: "#8dbbf2",
       secondary: "#4D95EA",

@@ -7,13 +7,14 @@ export const LoginContainer = styled.div`
   bottom: 0;
   right: 0;
   overflow: auto;
-  color: ${(props) => props.theme.login.black};
+  color: ${(props) => props.theme.app.login.black};
   background-image: linear-gradient(
     to bottom right,
-    ${(props) => props.theme.login.primary},
-    ${(props) => props.theme.login.secondary}
+    ${(props) => props.theme.app.login.primary},
+    ${(props) => props.theme.app.login.secondary}
   );
 `;
+
 
 export const LoginCenteredContainer = styled.div`
   position: absolute;

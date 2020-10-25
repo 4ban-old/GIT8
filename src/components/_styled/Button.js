@@ -14,13 +14,13 @@ export const LinkButton = styled(Link)`
   font-weight: 700;
   text-align: center;
   transition: all 0.15s;
-  color: ${(props) => props.theme.text};
+  color: ${(props) => props.theme.app.text};
   border-radius: 0.3em;
 
   &:hover {
     opacity: 0.8;
-    color: ${(props) => props.theme.colors.accent};
-    background: ${(props) => props.theme.colors.secondary};
+    color: ${(props) => props.theme.app.colors.accent};
+    background: ${(props) => props.theme.app.colors.secondary};
   }
 `;
 

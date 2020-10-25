@@ -1,7 +1,6 @@
 import React from "react";
 import { useSelector } from "react-redux";
-import { Link, Redirect } from "react-router-dom";
-import styled from "styled-components";
+import { Redirect } from "react-router-dom";
 import { Github } from "@styled-icons/boxicons-logos/";
 
 import { GitHubAuth } from "@/helpers/auth.helpers.js";
@@ -17,9 +16,11 @@ import LogoImage from "@/assets/images/app-icon.png";
 
 const Login = () => {
   const isAuthenticated = useSelector(
-    (state) => state.sessionReducer.token !== null
+    (state) => state.settingsReducer.token !== null
   );
+
   if (isAuthenticated) return <Redirect to="/" />;
+
   return (
     <LoginContainer>
       <LoginCenteredContainer>

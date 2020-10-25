@@ -1,4 +1,5 @@
 import axios from "axios";
+import store from "@/store";
 import Constants from "./constants";
 
 export default axios.create({
@@ -6,6 +7,7 @@ export default axios.create({
   headers: {
     "Content-Type": "application/json",
     "If-None-Match": "",
+    "Authorization": `token ${store.getState().settingsReducer.token}`,
   },
   responseType: "json",
 });

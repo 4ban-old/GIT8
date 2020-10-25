@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const AppVersion = styled.div`
   font-weight: 700;
-  background: ${props => props.theme.login.purple};
+  background: ${props => props.theme.app.login.purple};
   border-radius: 100px;
   width: 10vw;
   text-align:center;
