@@ -1,3 +1,4 @@
+import React from 'react';
 import styled from "styled-components";
 
 export const LoginContainer = styled.div`
@@ -27,4 +28,28 @@ export const LoginCenteredContainer = styled.div`
   height: 85%;
   ${"" /* border: 1px solid red; */}
   text-align: center;
+`;
+
+export const PageContainer = styled.div`
+  display: flex;
+  height: 100vh;
+  box-sizing: border-box;
+  overflow: hidden;
+  margin: 0;
+  padding: 0;
+`;
+
+export const MainContainer = styled.div`
+  flex: 1;
+`;
+
+export const SideBarContainer = styled.div`
+  width: 10vw;
+  background-color: ${(props) => props.theme.app.colors.primary};
+  flex: 0;
+`;
+
+export const SideBarWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
 `;

@@ -7,9 +7,9 @@ import baseTheme from '@/themes/base'
 import lightTheme from "@/themes/light";
 import darkTheme from "@/themes/dark";
 
-import { GlobalStyle } from "@/components/_styled/GlobalStyle";
+import { GlobalStyle } from "@/components/GlobalStyle";
 
-const ThemeDecorator = ({children}) => {
+export const ThemeDecorator = ({children}) => {
   const isDark = useSelector((state) => state.settingsReducer.isDark);
   const theme = isDark ? mergeConfigs(baseTheme, darkTheme) : mergeConfigs(baseTheme, lightTheme);
 
@@ -22,5 +22,3 @@ const ThemeDecorator = ({children}) => {
     </Provider>
   )
 }
-
-export default ThemeDecorator;

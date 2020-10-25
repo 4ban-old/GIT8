@@ -1,10 +1,11 @@
 import React, { useEffect } from "react";
 import { Switch, Route } from "react-router-dom";
-
-import ThemeDecorator from '@/components/ThemeDecorator';
-import { PrivateRoute } from "@/components/PrivateRoute";
-import { GitHubAuthStatus } from "@/helpers/auth.helpers.js";
 import store from "@/store";
+
+import { GitHubAuthStatus } from "@/helpers/auth.helpers.js";
+
+import { ThemeDecorator } from '@/components/ThemeDecorator';
+import { PrivateRoute } from "@/components/PrivateRoute";
 
 import Notifications from "@/containers/Notifications";
 import Settings from "@/containers/Settings";

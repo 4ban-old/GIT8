@@ -1,18 +1,17 @@
 import React from "react";
 import { useSelector } from "react-redux";
 import { Redirect } from "react-router-dom";
-import { Github } from "@styled-icons/boxicons-logos/";
 
 import { GitHubAuth } from "@/helpers/auth.helpers.js";
-import { LoginButtonPurple } from "@/components/_styled/Button";
-import {
-  LoginContainer,
-  LoginCenteredContainer,
-} from "@/components/_styled/LoginContainer";
-import Title from "@/components/Title";
-import Version from "@/components/Version";
-import { Logo } from "@/components/_styled/Logo";
+
+import { Github } from "@styled-icons/boxicons-logos/";
 import LogoImage from "@/assets/images/app-icon.png";
+
+import { LoginContainer, LoginCenteredContainer } from '@/components/Containers';
+import { Title } from "@/components/Title";
+import { Version } from "@/components/Version";
+import { Logo } from "@/components/Logo";
+import { LoginButtonPurple } from "@/components/Button";
 
 const Login = () => {
   const isAuthenticated = useSelector(

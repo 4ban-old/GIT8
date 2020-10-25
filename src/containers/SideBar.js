@@ -7,13 +7,13 @@ import { Settings } from "@styled-icons/ionicons-outline/Settings";
 import { Notifications } from '@styled-icons/ionicons-outline/Notifications'
 import { Sync } from '@styled-icons/ionicons-outline/Sync'
 
-import Logout from "@/components/Logout";
-import Button from "@/components/Button";
-import ThemeSwitch from "@/components/ThemeSwitch";
-import Title from "@/components/Title";
-import Avatar from "@/components/Avatar";
-import Divider from "@/components/Divider";
-import Spacer from "@/components/Spacer";
+import { Logout } from "@/components/Logout";
+import { Button } from "@/components/Button";
+import { ThemeSwitch } from "@/components/ThemeSwitch";
+import { Title } from "@/components/Title";
+import { Avatar } from "@/components/Avatar";
+import { Divider } from "@/components/Divider";
+import { Spacer } from "@/components/Spacer";
 
 const SideBar = () => {
   const dispatch = useDispatch();
