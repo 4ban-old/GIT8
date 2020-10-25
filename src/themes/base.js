@@ -1,6 +1,7 @@
-const lightTheme = {
+const baseTheme = {
   app: {
-    background: "#ffffff",
+    fontFamily: "-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif",
+    background: "#fcfcfc",
     text: "#24292e",
     login: {
       primary: "#6441A5",
@@ -28,4 +29,4 @@ const lightTheme = {
   }
 };
 
-export default lightTheme;
+export default baseTheme;

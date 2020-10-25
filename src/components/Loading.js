@@ -1,9 +1,11 @@
 import React, { useRef, useEffect } from "react";
 import { useSelector } from "react-redux";
 import { withTheme } from "styled-components";
+import { useTheme } from 'rendition';
 import LoadingBar from "react-top-loading-bar";
 
 const Loading = (props) => {
+  const theme = useTheme();
   const ref = useRef(null)
   const isLoading = useSelector((state) => state.sessionReducer.loading)
 

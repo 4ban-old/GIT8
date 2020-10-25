@@ -1,13 +1,8 @@
 import React, { useEffect } from "react";
-import { useSelector } from "react-redux";
 import { Switch, Route } from "react-router-dom";
 
-import { ThemeProvider } from "styled-components";
-import lightTheme from "@/themes/light";
-import darkTheme from "@/themes/dark";
-
+import ThemeDecorator from '@/components/ThemeDecorator';
 import { PrivateRoute } from "@/components/PrivateRoute";
-import { GlobalStyle } from "@/components/_styled/GlobalStyle";
 import { GitHubAuthStatus } from "@/helpers/auth.helpers.js";
 import store from "@/store";
 
@@ -17,22 +12,19 @@ import Login from "@/containers/Login";
 import Error404 from "@/containers/Error404";
 
 const App = () => {
-  const isDark = useSelector((state) => state.settingsReducer.isDark);
-
   useEffect(() => {
     GitHubAuthStatus(store);
   }, []);
 
   return (
-    <ThemeProvider theme={isDark ? darkTheme : lightTheme}>
-      <GlobalStyle />
+    <ThemeDecorator>
       <Switch>
         <PrivateRoute exact path="/" component={Notifications} />
         <PrivateRoute exact path="/settings" component={Settings} />
         <Route exact path="/login" component={Login} />
         <Route path="*" component={Error404} />
       </Switch>
-    </ThemeProvider>
+    </ThemeDecorator>
   );
 };
 
