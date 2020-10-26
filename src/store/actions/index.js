@@ -1,4 +1,4 @@
-import api from "../../helpers/api.helpers";
+import api from "@/helpers/api.helpers";
 import store from "@/store";
 
 import { LOGIN, LOGOUT, LOADING, GET_USER, SET_DARK_THEME, SET_REQUEST_LIMIT } from "./types";
@@ -30,9 +30,6 @@ export const getUserAction = () => (dispatch) => {
   // dispatch(setLoading(true))
   api
     .get("/user", {
-      headers: {
-        Authorization: `token ${store.getState().settingsReducer.token}`,
-      },
     })
     .then((response) => {
       // console.log("GET_USER: ", response);
@@ -54,5 +51,21 @@ export const setDarkTheme = (val) => (dispatch) => {
 };
 
 export const fetchNotifications = () => (dispatch) => {
-
+  api
+    .get("/notifications", {
+      params: {
+        participating: store.getState().settingsReducer.participating
+      }
+    })
+    .then((response) => {
+      console.log("GET_Notifications: ", response);
+      dispatch(setRequestLimit(response.headers['x-ratelimit-remaining']))
+      // dispatch({ type: GET_USER, payload: response.data });
+      // dispatch(setLoading(false))
+    })
+    .catch((error) => {
+      console.log("GET_NOTIFICATIONS error: ", error);
+      // dispatch({});
+      // dispatch(setLoading(false))
+    });
 };

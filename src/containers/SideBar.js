@@ -15,7 +15,6 @@ import Avatar from "@/components/Avatar";
 import Divider from "@/components/Divider";
 import Spacer from "@/components/Spacer";
 
-
 const SideBar = () => {
   const dispatch = useDispatch();
   const user = useSelector((state) => state.sessionReducer.user);
@@ -27,6 +26,7 @@ const SideBar = () => {
 
   useEffect(() => {
     const interval = 60000;
+    dispatch(fetchNotifications())
     const timer = setInterval(() =>  dispatch(fetchNotifications()), interval);
     return () => {
       clearInterval(timer)
@@ -41,7 +41,7 @@ const SideBar = () => {
       <Divider />
       <ThemeSwitch />
       <Button to="/" icon={<Notifications size='32' />}/>
-      <Button to="/anywhere" text='404'/>
+      <Button to="/anywhere" text='404' />
       <Spacer />
       <Divider />
       <Button to="/settings" icon={<Settings size='32'/>}/>
