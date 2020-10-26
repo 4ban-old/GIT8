@@ -38,7 +38,7 @@
     "core-js": "3.6.5",
     "css-loader": "^5.0.0",
     "dotenv-webpack": "^4.0.0",
-    "electron": "^8.5.2",
+    "electron": "^9.3.1",
     "electron-builder": "^22.9.1",
     "electron-devtools-installer": "^3.1.1",
     "file-loader": "^6.1.1",

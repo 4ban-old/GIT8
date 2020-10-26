@@ -13,8 +13,6 @@ export const ThemeDecorator = ({children}) => {
   const isDark = useSelector((state) => state.settingsReducer.isDark);
   const theme = isDark ? mergeConfigs(baseTheme, darkTheme) : mergeConfigs(baseTheme, lightTheme);
 
-  console.log('###################### THEME:', theme)
-
   return (
     <Provider theme={theme}>
       <GlobalStyle theme={theme} />

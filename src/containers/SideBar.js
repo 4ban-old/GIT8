@@ -1,14 +1,14 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
-import { getUserAction, fetchNotifications } from "@/store/actions";
+import { logout, getUserAction, fetchNotifications } from "@/store/actions";
 
 import { Settings } from "@styled-icons/ionicons-outline/Settings";
 import { Notifications } from '@styled-icons/ionicons-outline/Notifications'
 import { Sync } from '@styled-icons/ionicons-outline/Sync'
+import { Exit } from "@styled-icons/ionicons-outline/Exit";
 
 
-import { Logout } from "@/components/Logout";
 import { Button } from "@/components/Button";
 import { ThemeSwitch } from "@/components/ThemeSwitch";
 import { Title } from "@/components/Title";
@@ -37,7 +37,7 @@ const SideBar = () => {
     <>
       <Title size='1em' sidebar={true}/>
       <Avatar src={user?.avatar_url || ''} url={user?.html_url || ''} />
-      <Button icon={<Sync size='32' />}/>
+      <Button to='#' icon={<Sync size='32' />} />
       <Divider />
       <ThemeSwitch />
       <Button to="/" icon={<Notifications size='32' />}/>
@@ -45,7 +45,7 @@ const SideBar = () => {
       <Spacer />
       <Divider />
       <Button to="/settings" icon={<Settings size='32'/>}/>
-      <Logout />
+      <Button to='#' icon={<Exit size='32' />} onClick={() => dispatch(logout())} />
     </>
   );
 };

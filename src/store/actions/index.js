@@ -50,6 +50,7 @@ export const setDarkTheme = (val) => (dispatch) => {
 };
 
 export const fetchNotifications = () => (dispatch) => {
+  // dispatch(setLoading(true))
   api
     .get("/notifications", {
       params: {
@@ -57,7 +58,7 @@ export const fetchNotifications = () => (dispatch) => {
       }
     })
     .then((response) => {
-      console.log("GET_Notifications: ", response);
+      console.log("GET_Notifications: ", response.data);
       dispatch(setRequestLimit(response.headers['x-ratelimit-remaining']))
       // dispatch({ type: GET_USER, payload: response.data });
       // dispatch(setLoading(false))

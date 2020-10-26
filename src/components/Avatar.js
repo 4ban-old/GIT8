@@ -3,7 +3,7 @@ import { openExternal } from '@/helpers/utils'
 import styled from "styled-components";
 
 export const UserAvatar = styled.img`
-  ${'' /* width: 9vw; */}
+  width: 9vw;
   border-radius: 0.5rem;
   margin: 0.2em;
   ${'' /* flex: 1 0 auto; */}

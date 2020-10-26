@@ -14,8 +14,8 @@ export const ThemeSwitch = () => {
   return (<Switch
             onChange={() => dispatch(setDarkTheme(!isDark))}
             checked={isDark}
-            checkedIcon={<Moon size='18' />}
-            uncheckedIcon={<Sun size='18' />}
+            checkedIcon={<Moon size='26' />}
+            uncheckedIcon={<Sun size='26' />}
           />)
 
 };
