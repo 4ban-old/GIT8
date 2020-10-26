@@ -7,6 +7,7 @@ import { Settings } from "@styled-icons/ionicons-outline/Settings";
 import { Notifications } from '@styled-icons/ionicons-outline/Notifications'
 import { Sync } from '@styled-icons/ionicons-outline/Sync'
 
+
 import { Logout } from "@/components/Logout";
 import { Button } from "@/components/Button";
 import { ThemeSwitch } from "@/components/ThemeSwitch";
@@ -25,6 +26,7 @@ const SideBar = () => {
 
   useEffect(() => {
     const interval = 60000;
+    dispatch(fetchNotifications())
     const timer = setInterval(() =>  dispatch(fetchNotifications()), interval);
     return () => {
       clearInterval(timer)
@@ -39,7 +41,7 @@ const SideBar = () => {
       <Divider />
       <ThemeSwitch />
       <Button to="/" icon={<Notifications size='32' />}/>
-      <Button to="/anywhere" text='404'/>
+      <Button to="/anywhere" text='404' />
       <Spacer />
       <Divider />
       <Button to="/settings" icon={<Settings size='32'/>}/>

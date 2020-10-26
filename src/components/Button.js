@@ -73,6 +73,6 @@ export const LoginButtonGreen = styled(LoginButton)`
 `;
 
 export const Button = (props) => {
-  const { to, text, icon } = props;
-  return <LinkButton to={to}>{icon}{text}</LinkButton>;
+  const { to, text, icon, onClick = null } = props;
+  return <LinkButton to={to} onClick={onClick}>{icon}{text}</LinkButton>;
 };
