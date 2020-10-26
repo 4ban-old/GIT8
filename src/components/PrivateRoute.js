@@ -3,11 +3,9 @@ import { useSelector } from "react-redux";
 import { Redirect, Route } from "react-router-dom";
 
 import ErrorBoundary from "@/components/ErrorBoundary";
-import Loading from "@/components/Loading";
+import { Loading } from "@/components/Loading";
 
-import { PageContainer } from "@/components/_styled/PageContainer";
-import { MainContainer } from "@/components/_styled/MainContainer";
-import { SideBarContainer } from "@/components/_styled/SideBarContainer";
+import { PageContainer, MainContainer, SideBarContainer } from "@/components/Containers";
 import SideBar from "@/containers/SideBar";
 
 export const PrivateRoute = ({ component: Component, ...rest }) => {

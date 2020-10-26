@@ -7,7 +7,7 @@ import { setDarkTheme } from "@/store/actions";
 import { Sun } from '@styled-icons/fa-solid/Sun'
 import { Moon } from '@styled-icons/evaicons-solid/Moon'
 
-const ThemeSwitch = () => {
+export const ThemeSwitch = () => {
   const dispatch = useDispatch();
   const isDark = useSelector((state) => state.settingsReducer.isDark);
 
@@ -19,4 +19,3 @@ const ThemeSwitch = () => {
           />)
 
 };
-export default ThemeSwitch;

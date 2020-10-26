@@ -29,8 +29,7 @@ export const setRequestLimit = (limit) => ({
 export const getUserAction = () => (dispatch) => {
   // dispatch(setLoading(true))
   api
-    .get("/user", {
-    })
+    .get("/user", {})
     .then((response) => {
       // console.log("GET_USER: ", response);
       dispatch(setRequestLimit(response.headers['x-ratelimit-remaining']))

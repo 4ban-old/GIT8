@@ -1,9 +1,14 @@
 import React from 'react';
+import styled from "styled-components";
 
-import { SpaceDivider } from "@/components/_styled/SpaceDivider";
+export const SpaceDivider = styled.hr`
+  margin: 0 0.1em;
+  padding: 0;
+  border: 1px solid ${(props) => props.theme.app.text};
+  flex-grow: 1;
+  ${'' /* flex: 1 0 auto; */}
+`;
 
-const Divider = () => {
+export const Divider = () => {
   return <SpaceDivider />
 }
-
-export default Divider;

@@ -7,7 +7,7 @@ export default axios.create({
   headers: {
     "Content-Type": "application/json",
     "If-None-Match": "",
-    "Authorization": `token ${store.getState().settingsReducer.token}`
+    "Authorization": `token ${store.getState().settingsReducer.token}`,
   },
   responseType: "json",
 });

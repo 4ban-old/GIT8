@@ -16,7 +16,7 @@ module.exports = {
     rules: [
       {
         test: /\.css$/,
-        exclude: /node_modules/,
+        // exclude: /node_modules/,
         use: [{ loader: "style-loader" }, { loader: "css-loader" }],
       },
       {
@@ -64,11 +64,17 @@ module.exports = {
     }),
   ],
   devServer: {
+    compress: true,
     contentBase: path.resolve(__dirname, "build"),
     stats: {
       colors: true,
       chunks: false,
       children: false,
+    },
+    watchOptions: {
+      aggregateTimeout: 300,
+      ignored: /node_modules/,
+      poll: 100,
     },
     before() {
       spawn("electron", ["."], {

@@ -1,16 +1,14 @@
 import React from "react";
 import { useDispatch } from "react-redux";
 
-import { LinkButton } from "@/components/_styled/Button";
 import { logout } from "@/store/actions";
 
 import { Exit } from "@styled-icons/ionicons-outline/Exit";
 
+import { Button } from "@/components/Button";
 
-const Logout = () => {
+export const Logout = () => {
   const dispatch = useDispatch();
 
-  return <LinkButton onClick={() => dispatch(logout())}><Exit size='32' /></LinkButton>;
+  return <Button onClick={() => dispatch(logout())} icon={<Exit size='32' />}/>
 };
-
-export default Logout;

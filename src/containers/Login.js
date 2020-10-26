@@ -1,25 +1,25 @@
 import React from "react";
 import { useSelector } from "react-redux";
-import { Link, Redirect } from "react-router-dom";
-import styled from "styled-components";
-import { Github } from "@styled-icons/boxicons-logos/";
+import { Redirect } from "react-router-dom";
 
 import { GitHubAuth } from "@/helpers/auth.helpers.js";
-import { LoginButtonPurple } from "@/components/_styled/Button";
-import {
-  LoginContainer,
-  LoginCenteredContainer,
-} from "@/components/_styled/LoginContainer";
-import Title from "@/components/Title";
-import Version from "@/components/Version";
-import { Logo } from "@/components/_styled/Logo";
+
+import { Github } from "@styled-icons/boxicons-logos/";
 import LogoImage from "@/assets/images/app-icon.png";
+
+import { LoginContainer, LoginCenteredContainer } from '@/components/Containers';
+import { Title } from "@/components/Title";
+import { Version } from "@/components/Version";
+import { Logo } from "@/components/Logo";
+import { LoginButtonPurple } from "@/components/Button";
 
 const Login = () => {
   const isAuthenticated = useSelector(
-    (state) => state.sessionReducer.token !== null
+    (state) => state.settingsReducer.token !== null
   );
+
   if (isAuthenticated) return <Redirect to="/" />;
+
   return (
     <LoginContainer>
       <LoginCenteredContainer>
