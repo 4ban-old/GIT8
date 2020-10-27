@@ -67,6 +67,18 @@ export function updateTrayIcon(notifications = 0) {
   }
 }
 
+export function notify() {
+  if (!notifications.length) {
+    return;
+  }
+
+  if (playSound) {
+    playSound();
+  }
+  showNotifications()
+
+};
+
 export function showNotification (len = 0, latest = '') {
   if (latest) {
     console.log(latest)
@@ -86,4 +98,10 @@ export function showNotification (len = 0, latest = '') {
       console.log('Notification clicked')
     }
   }
+}
+
+function playSound() {
+  const audio = new Audio('path to notification sound');
+  audio.volume = 0.2;
+  audio.play();
 }
