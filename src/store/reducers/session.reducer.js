@@ -25,6 +25,16 @@ export default function (state = initialState, action) {
         ...state,
         request_limit: action.payload,
       };
+    case types.SET_LAST_FETCH_AT:
+      return {
+        ...state,
+        last_fetch_at: action.payload,
+      };
+    case types.UPDATE_NOTIFICATIONS_LIST:
+      return {
+        ...state,
+        notifications: action.payload,
+      };
     default:
       return state;
   }

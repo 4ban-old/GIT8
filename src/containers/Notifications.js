@@ -1,27 +1,24 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-
+import { groupBy } from '@/helpers/utils'
 import { AllDone } from "@/components/AllDone";
 
 const Notifications = () => {
   const dispatch = useDispatch();
   const notifications = useSelector((state) => state.sessionReducer.notifications);
 
-  const groupedNotifications = _(notifications)
-    .groupBy((obj) => obj.repository.full_name)
-    .sortBy((_, key) => key)
-    .value();
+  const groupedNotifications = groupBy(notifications, obj => obj.repository.full_name)
 
   console.log('grouped', groupedNotifications)
 
-  if (notifications.length) {
+  if (!notifications.length) {
     return <AllDone />;
   }
 
   return (
     <>
       <div>Test message</div>
-      {Object.values(groupedNotifications).map((repoNotifications) => {
+      {/* {Object.values(groupedNotifications).map((repoNotifications) => {
         const repoSlug = repoNotifications[0].repository.full_name;
 
         return (
@@ -32,7 +29,7 @@ const Notifications = () => {
             repoNotifications={repoNotifications}
           />
         );
-      })}
+      })} */}
     </>
   );
 };

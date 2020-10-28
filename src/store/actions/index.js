@@ -25,7 +25,21 @@ export const setRequestLimit = (limit) => ({
   payload: limit,
 });
 
-// User
+export const setLastFetchAt = (time) => ({
+  type: types.SET_LAST_FETCH_AT,
+  payload: time,
+});
+
+export const setTheme = (val) => (dispatch) => {
+  localStorage.setItem("theme", val);
+  dispatch({ type: types.SET_THEME, payload: val });
+};
+
+export const updateNotificationsList = (updatedList) => ({
+  type: types.UPDATE_NOTIFICATIONS_LIST,
+  payload: updatedList,
+});
+
 export const getUser = () => (dispatch) => {
   api.get("/user", {}).then((response) => {
     dispatch(setRequestLimit(response.headers['x-ratelimit-remaining']))
@@ -35,11 +49,6 @@ export const getUser = () => (dispatch) => {
   });
 };
 
-// Theme
-export const setTheme = (val) => (dispatch) => {
-  localStorage.setItem("theme", val);
-  dispatch({ type: types.SET_THEME, payload: val });
-};
 
 export const fetchNotifications = () => (dispatch) => {
   dispatch(setLoading(true))
@@ -47,16 +56,17 @@ export const fetchNotifications = () => (dispatch) => {
     params: {
       participating: store.getState().settingsReducer.participating,
       per_page: store.getState().settingsReducer.per_page,
-      since: store.getState().sessionReducer.last_fetch_at,
+      since:  store.getState().sessionReducer.last_fetch_at,
     }
   }).then((response) => {
     dispatch(setRequestLimit(response.headers['x-ratelimit-remaining']))
-    // TODO
-    // 1. Send notifications if any to he separate action saveNotifications()
-    // 2. update the last_fetch_at date with the newest notification + 1 sec optional
-    // 3. do a merge of arrays, the newest on top - merge(new, old)
+    console.log(response.data)
+    if (response.data.length) {
+      dispatch(setLastFetchAt(response.data[0].updated_at))
+      const oldNotifications = store.getState().sessionReducer.notifications
+      dispatch(updateNotificationsList([...response.data, ...oldNotifications]))
+    }
     dispatch(setLoading(false))
-    console.log("Notifications: \n", response.data);
   }).catch((error) => {
     console.log("FETCH_NOTIFICATIONS: ", error);
     dispatch(setLoading(false))
