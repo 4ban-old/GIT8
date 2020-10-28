@@ -27,16 +27,11 @@ export const setRequestLimit = (limit) => ({
 
 // User
 export const getUser = () => (dispatch) => {
-  // dispatch(setLoading(true))
   api.get("/user", {}).then((response) => {
-    // console.log("GET_USER: ", response);
     dispatch(setRequestLimit(response.headers['x-ratelimit-remaining']))
     dispatch({ type: types.GET_USER, payload: response.data });
-    // dispatch(setLoading(false))
   }).catch((error) => {
-    console.log("GET_USER error: ", error);
-    // dispatch({});
-    // dispatch(setLoading(false))
+    console.log("GET_USER: ", error);
   });
 };
 
@@ -47,7 +42,7 @@ export const setTheme = (val) => (dispatch) => {
 };
 
 export const fetchNotifications = () => (dispatch) => {
-  // dispatch(setLoading(true))
+  dispatch(setLoading(true))
   api.get("/notifications", {
     params: {
       participating: store.getState().settingsReducer.participating,
@@ -55,12 +50,10 @@ export const fetchNotifications = () => (dispatch) => {
     }
   }).then((response) => {
     dispatch(setRequestLimit(response.headers['x-ratelimit-remaining']))
+    dispatch(setLoading(false))
     console.log("Notifications: \n", response.data);
-    // dispatch({ type: GET_USER, payload: response.data });
-    // dispatch(setLoading(false))
   }).catch((error) => {
-    console.log("GET_NOTIFICATIONS error: ", error);
-    // dispatch({});
-    // dispatch(setLoading(false))
+    console.log("FETCH_NOTIFICATIONS: ", error);
+    dispatch(setLoading(false))
   });
 };
