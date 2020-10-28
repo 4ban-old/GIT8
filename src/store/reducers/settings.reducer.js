@@ -1,8 +1,8 @@
-import { LOGIN, LOGOUT, SET_DARK_THEME } from "../actions/types";
+import * as types from "../actions/types";
 
 const initialState = {
   token: localStorage.getItem("token"),
-  isDark: JSON.parse(localStorage.getItem("isDark")) || false,
+  theme: localStorage.getItem("theme") || 'dark',
   sound: JSON.parse(localStorage.getItem("sound")) || false,
   participating: JSON.parse(localStorage.getItem("participating")) || false,
   autostart: JSON.parse(localStorage.getItem("autostart")) || false,
@@ -11,20 +11,20 @@ const initialState = {
 
 export default function (state = initialState, action) {
   switch (action.type) {
-    case LOGIN:
+    case types.LOGIN:
       return {
         ...state,
         token: action.payload,
       };
-    case LOGOUT:
+    case types.LOGOUT:
       return {
         ...state,
         token: null,
       };
-    case SET_DARK_THEME:
+    case types.SET_THEME:
       return {
         ...state,
-        isDark: action.payload,
+        theme: action.payload,
       };
     default:
       return state;

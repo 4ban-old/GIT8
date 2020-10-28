@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
-import { logout, getUserAction, fetchNotifications } from "@/store/actions";
+import { logout, getUser, fetchNotifications } from "@/store/actions";
 
 import { Settings } from "@styled-icons/ionicons-outline/Settings";
 import { Notifications } from '@styled-icons/ionicons-outline/Notifications'
@@ -21,23 +21,27 @@ const SideBar = () => {
   const user = useSelector((state) => state.sessionReducer.user);
 
   useEffect(() => {
-    dispatch(getUserAction());
+    dispatch(getUser());
   }, [dispatch]);
 
   useEffect(() => {
     const interval = 60000;
-    dispatch(fetchNotifications())
-    const timer = setInterval(() =>  dispatch(fetchNotifications()), interval);
+    refreshNotifications()
+    const timer = setInterval(() =>  refreshNotifications(), interval);
     return () => {
       clearInterval(timer)
     }
   }, []);
 
+  const refreshNotifications = () => {
+    dispatch(fetchNotifications())
+  }
+
   return (
     <>
       <Title size='1em' sidebar={true}/>
       <Avatar src={user?.avatar_url || ''} url={user?.html_url || ''} />
-      <Button to='#' icon={<Sync size='32' />} />
+      <Button to='#' onClick={refreshNotifications} icon={<Sync size='32' />} />
       <Divider />
       <ThemeSwitch />
       <Button to="/" icon={<Notifications size='32' />}/>

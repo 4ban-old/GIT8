@@ -9,9 +9,14 @@ import darkTheme from "@/themes/dark";
 
 import { GlobalStyle } from "@/components/GlobalStyle";
 
+const themes = {
+  dark: darkTheme,
+  light: lightTheme
+}
+
 export const ThemeDecorator = ({children}) => {
-  const isDark = useSelector((state) => state.settingsReducer.isDark);
-  const theme = isDark ? mergeConfigs(baseTheme, darkTheme) : mergeConfigs(baseTheme, lightTheme);
+  const userTheme = useSelector((state) => state.settingsReducer.theme);
+  const theme = mergeConfigs(baseTheme, themes[userTheme]);
 
   return (
     <Provider theme={theme}>

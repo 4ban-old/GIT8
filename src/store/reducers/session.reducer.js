@@ -1,26 +1,26 @@
-import { LOADING, GET_USER, SET_REQUEST_LIMIT } from "../actions/types";
+import * as types from "../actions/types";
 
 const initialState = {
   loading: false,
   user: null,
   request_limit: null,
-  last_read_at: null,
+  last_read_at: "1970-01-01T01:01:00Z",
   notifications: []
 };
 
 export default function (state = initialState, action) {
   switch (action.type) {
-    case GET_USER:
+    case types.GET_USER:
       return {
         ...state,
         user: action.payload,
       };
-    case LOADING:
+    case types.SET_LOADING:
       return {
         ...state,
         loading: action.payload,
       };
-    case SET_REQUEST_LIMIT:
+    case types.SET_REQUEST_LIMIT:
       return {
         ...state,
         request_limit: action.payload,
