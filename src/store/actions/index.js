@@ -46,10 +46,15 @@ export const fetchNotifications = () => (dispatch) => {
   api.get("/notifications", {
     params: {
       participating: store.getState().settingsReducer.participating,
-      since: store.getState().sessionReducer.last_read_at
+      per_page: store.getState().settingsReducer.per_page,
+      since: store.getState().sessionReducer.last_fetch_at,
     }
   }).then((response) => {
     dispatch(setRequestLimit(response.headers['x-ratelimit-remaining']))
+    // TODO
+    // 1. Send notifications if any to he separate action saveNotifications()
+    // 2. update the last_fetch_at date with the newest notification + 1 sec optional
+    // 3. do a merge of arrays, the newest on top - merge(new, old)
     dispatch(setLoading(false))
     console.log("Notifications: \n", response.data);
   }).catch((error) => {

@@ -21,7 +21,9 @@ export const PrivateRoute = ({ component: Component, ...rest }) => {
             <ErrorBoundary>
               <Loading />
               <MainContainer>
-                <Component {...props} />
+                <ErrorBoundary>
+                  <Component {...props} />
+                </ErrorBoundary>
               </MainContainer>
               <SideBarContainer>
                 <SideBar />

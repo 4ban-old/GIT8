@@ -6,7 +6,7 @@ const initialState = {
   sound: JSON.parse(localStorage.getItem("sound")) || false,
   participating: JSON.parse(localStorage.getItem("participating")) || false,
   autostart: JSON.parse(localStorage.getItem("autostart")) || false,
-  perPage: JSON.parse(localStorage.getItem("perPage")) || 30,
+  per_page: JSON.parse(localStorage.getItem("per_page")) || 30,
 };
 
 export default function (state = initialState, action) {

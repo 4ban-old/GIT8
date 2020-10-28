@@ -4,7 +4,7 @@ const initialState = {
   loading: false,
   user: null,
   request_limit: null,
-  last_read_at: "1970-01-01T01:01:00Z",
+  last_fetch_at: "1970-01-01T01:01:00Z",
   notifications: []
 };
 

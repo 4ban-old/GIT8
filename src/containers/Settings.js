@@ -12,9 +12,9 @@ const Settings = () => {
   const sound = useSelector(state => state.settingsReducer.sound)
   const participating = useSelector(state => state.settingsReducer.participating)
   const autostart = useSelector(state => state.settingsReducer.autostart)
-  const perPage = useSelector(state => state.settingsReducer.perPage)
+  const per_page = useSelector(state => state.settingsReducer.per_page)
 
-  console.log({sound, participating, autostart, perPage})
+  console.log({sound, participating, autostart, per_page})
 
   return (
     <>

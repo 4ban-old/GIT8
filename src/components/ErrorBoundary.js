@@ -27,7 +27,6 @@ export class ErrorBoundary extends Component {
         <div>
           <h2>Oops, something went wrong.</h2>
           <code>{this.state.error.toString()}</code>
-          <Button to="/" text='Go home' />
           <details style={{ whiteSpace: 'pre-wrap' }}>
             {this.state.error && this.state.error.toString()}
             <br />
