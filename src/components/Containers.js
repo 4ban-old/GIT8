@@ -53,3 +53,25 @@ export const SideBarWrapper = styled.div`
   display: flex;
   flex-direction: column;
 `;
+
+export const NotificationsContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  box-sizing: border-box;
+  overflow: hidden;
+  margin: 0;
+  padding: 0;
+`;
+
+export const TopBarContainer = styled.div`
+  flex: 0;
+  background-color: ${(props) => props.theme.app.colors.primary};
+`;
+
+export const CenterWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2rem;
+`;

@@ -1,36 +1,29 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { groupBy } from '@/helpers/utils'
+
 import { AllDone } from "@/components/AllDone";
+import { TopBar } from "@/components/TopBar";
+import { GroupedNotifications } from "@/components/GroupedNotifications";
+import { UngroupedNotifications } from "@/components/UngroupedNotifications";
+import { NotificationsContainer, MainContainer, TopBarContainer } from '@/components/Containers'
 
 const Notifications = () => {
-  const dispatch = useDispatch();
   const notifications = useSelector((state) => state.sessionReducer.notifications);
-
-  const groupedNotifications = groupBy(notifications, obj => obj.repository.full_name)
-
-  console.log('grouped', groupedNotifications)
+  const groups = useSelector(state => state.settingsReducer.groups)
 
   if (!notifications.length) {
     return <AllDone />;
   }
 
   return (
-    <>
-      <div>Test message</div>
-      {/* {Object.values(groupedNotifications).map((repoNotifications) => {
-        const repoSlug = repoNotifications[0].repository.full_name;
-
-        return (
-          <RepositoryNotifications
-            key={repoSlug}
-            hostname={hostname}
-            repoName={repoSlug}
-            repoNotifications={repoNotifications}
-          />
-        );
-      })} */}
-    </>
+    <NotificationsContainer>
+      <TopBarContainer>
+        <TopBar />
+      </TopBarContainer>
+      <MainContainer>
+        {groups ? <GroupedNotifications notifications={notifications} /> : <UngroupedNotifications notifications={notifications} /> }
+      </MainContainer>
+    </NotificationsContainer>
   );
 };
 

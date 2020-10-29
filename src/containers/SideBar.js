@@ -19,6 +19,7 @@ import { Spacer } from "@/components/Spacer";
 const SideBar = () => {
   const dispatch = useDispatch();
   const user = useSelector((state) => state.sessionReducer.user);
+  const notifications = useSelector((state) => state.sessionReducer.notifications);
 
   useEffect(() => {
     dispatch(getUser());
@@ -44,11 +45,11 @@ const SideBar = () => {
       <Button to='#' onClick={refreshNotifications} icon={<Sync size='32' />} />
       <Divider />
       <ThemeSwitch />
-      <Button to="/" icon={<Notifications size='32' />}/>
+      <Button to="/" icon={<Notifications size='32' />} badge={notifications?.length || null} />
       <Button to="/anywhere" text='404' />
       <Spacer />
       <Divider />
-      <Button to="/settings" icon={<Settings size='32'/>}/>
+      <Button to="/settings" icon={<Settings size='32'/>} />
       <Button to='#' icon={<Exit size='32' />} onClick={() => dispatch(logout())} />
     </>
   );

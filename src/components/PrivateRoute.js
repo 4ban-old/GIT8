@@ -18,17 +18,15 @@ export const PrivateRoute = ({ component: Component, ...rest }) => {
       render={(props) =>
         isAuthenticated ? (
           <PageContainer>
-            <ErrorBoundary>
-              <Loading />
-              <MainContainer>
-                <ErrorBoundary>
-                  <Component {...props} />
-                </ErrorBoundary>
-              </MainContainer>
-              <SideBarContainer>
-                <SideBar />
-              </SideBarContainer>
-            </ErrorBoundary>
+            <Loading />
+            <MainContainer>
+              <ErrorBoundary>
+                <Component {...props} />
+              </ErrorBoundary>
+            </MainContainer>
+            <SideBarContainer>
+              <SideBar />
+            </SideBarContainer>
           </PageContainer>
         ) : (
           <Redirect

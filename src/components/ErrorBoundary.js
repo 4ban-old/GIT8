@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 
 import { Button } from "@/components/Button";
+import { CenterWrapper } from "@/components/Containers";
 
 export class ErrorBoundary extends Component {
   constructor(props) {
@@ -24,7 +25,7 @@ export class ErrorBoundary extends Component {
   render() {
     if (this.state.error) {
       return (
-        <div>
+        <CenterWrapper>
           <h2>Oops, something went wrong.</h2>
           <code>{this.state.error.toString()}</code>
           <details style={{ whiteSpace: 'pre-wrap' }}>
@@ -32,7 +33,7 @@ export class ErrorBoundary extends Component {
             <br />
             {this.state.errorInfo.componentStack}
           </details>
-        </div>
+        </CenterWrapper>
       );
     }
     return this.props.children;

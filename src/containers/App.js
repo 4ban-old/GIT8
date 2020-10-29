@@ -6,6 +6,7 @@ import { GitHubAuthStatus } from "@/helpers/auth.helpers.js";
 
 import { ThemeDecorator } from '@/components/ThemeDecorator';
 import { PrivateRoute } from "@/components/PrivateRoute";
+import { ErrorBoundary } from "@/components/ErrorBoundary";
 
 import Notifications from "@/containers/Notifications";
 import Settings from "@/containers/Settings";
@@ -19,12 +20,14 @@ const App = () => {
 
   return (
     <ThemeDecorator>
-      <Switch>
-        <PrivateRoute exact path="/" component={Notifications} />
-        <PrivateRoute exact path="/settings" component={Settings} />
-        <Route exact path="/login" component={Login} />
-        <Route path="*" component={Error404} />
-      </Switch>
+      <ErrorBoundary>
+        <Switch>
+          <PrivateRoute exact path="/" component={Notifications} />
+          <PrivateRoute exact path="/settings" component={Settings} />
+          <Route exact path="/login" component={Login} />
+          <Route path="*" component={Error404} />
+        </Switch>
+      </ErrorBoundary>
     </ThemeDecorator>
   );
 };

@@ -8,7 +8,6 @@ import { login, logout } from "@/store/actions";
 
 export const GitHubAuthStatus = (store) => {
   ipcRenderer.on("github-oauth-success", async (event, token) => {
-    localStorage.setItem("token", token);
     store.dispatch(login(token));
   });
   ipcRenderer.on("github-oauth-failure", async (event, err) => {

@@ -18,11 +18,29 @@ export const LinkButton = styled(Link)`
   color: ${(props) => props.theme.app.text};
   border-radius: 0.3em;
   ${'' /* flex: 1 0 auto; */}
+  position: relative;
+
+  &:after {
+    color: ${(props) => props.theme.app.text};
+    background: ${(props) => props.theme.app.colors.red};
+    content: attr(data-count);
+    text-align: center;
+    border-radius: 1em;
+    position: absolute;
+    padding: 0 0.3rem;
+    top: -0.4rem;
+    right: 0rem;
+    left: auto;
+  }
 
   &:hover {
     opacity: 0.8;
     color: ${(props) => props.theme.app.colors.accent};
     background: ${(props) => props.theme.app.colors.secondary};
+  }
+
+  &:after:hover {
+    opacity: 0.5;
   }
 `;
 
@@ -73,6 +91,10 @@ export const LoginButtonGreen = styled(LoginButton)`
 `;
 
 export const Button = (props) => {
-  const { to, text, icon, onClick = null } = props;
-  return <LinkButton to={to} onClick={onClick}>{icon}{text}</LinkButton>;
+  const { to, text, icon, onClick = null, badge = null } = props;
+
+  return (<LinkButton to={to} onClick={onClick} data-count={badge}>
+    {icon}
+    {text}
+  </LinkButton>);
 };
