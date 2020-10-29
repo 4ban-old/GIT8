@@ -19,5 +19,6 @@ export const GlobalStyle = createGlobalStyle(
     font-size: ${theme.app.fontSize || '1em'};
     background: ${theme.app.background || '#fcfcfc'};
     color: ${theme.app.text || '#232323'};
+    box-sizing: border-box;
   }
 `);

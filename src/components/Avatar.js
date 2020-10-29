@@ -3,10 +3,9 @@ import { openExternal } from '@/helpers/utils'
 import styled from "styled-components";
 
 export const UserAvatar = styled.img`
+  ${'' /* max-width: 100; */}
   width: 9vw;
   border-radius: 0.5rem;
-  margin: 0.2em;
-  ${'' /* flex: 1 0 auto; */}
   &:hover {
     opacity:0.5;
   }

@@ -4,8 +4,7 @@ import { Redirect, Route } from "react-router-dom";
 
 import { ErrorBoundary } from "@/components/ErrorBoundary";
 import { Loading } from "@/components/Loading";
-
-import { PageContainer, MainContainer, SideBarContainer } from "@/components/Containers";
+import { AppContainer, ContentContainer, SideBarContainer } from "@/components/Containers";
 import SideBar from "@/containers/SideBar";
 
 export const PrivateRoute = ({ component: Component, ...rest }) => {
@@ -17,17 +16,17 @@ export const PrivateRoute = ({ component: Component, ...rest }) => {
       {...rest}
       render={(props) =>
         isAuthenticated ? (
-          <PageContainer>
+          <AppContainer>
             <Loading />
-            <MainContainer>
+            <ContentContainer>
               <ErrorBoundary>
                 <Component {...props} />
               </ErrorBoundary>
-            </MainContainer>
+            </ContentContainer>
             <SideBarContainer>
               <SideBar />
             </SideBarContainer>
-          </PageContainer>
+          </AppContainer>
         ) : (
           <Redirect
             to={{

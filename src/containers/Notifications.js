@@ -2,10 +2,10 @@ import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
 import { AllDone } from "@/components/AllDone";
-import { TopBar } from "@/components/TopBar";
-import { GroupedNotifications } from "@/components/GroupedNotifications";
-import { UngroupedNotifications } from "@/components/UngroupedNotifications";
-import { NotificationsContainer, MainContainer, TopBarContainer } from '@/components/Containers'
+import { NotificationsContainer, ContentContainer, TopBarContainer } from '@/components/Containers'
+import TopBar from "@/containers/TopBar";
+import NotificationsGrouped from "@/containers/NotificationsGrouped";
+import NotificationsUngrouped from "@/containers/NotificationsUngrouped";
 
 const Notifications = () => {
   const notifications = useSelector((state) => state.sessionReducer.notifications);
@@ -20,9 +20,11 @@ const Notifications = () => {
       <TopBarContainer>
         <TopBar />
       </TopBarContainer>
-      <MainContainer>
-        {groups ? <GroupedNotifications notifications={notifications} /> : <UngroupedNotifications notifications={notifications} /> }
-      </MainContainer>
+      <ContentContainer>
+        {groups ?
+          <NotificationsGrouped notifications={notifications} /> :
+          <NotificationsUngrouped notifications={notifications} /> }
+      </ContentContainer>
     </NotificationsContainer>
   );
 };

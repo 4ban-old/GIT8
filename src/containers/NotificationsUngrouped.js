@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
-export const UngroupedNotifications = (props) => {
+const NotificationsUngrouped = (props) => {
   const { notifications } = props
 
   return (
@@ -11,3 +11,4 @@ export const UngroupedNotifications = (props) => {
   );
 };
 
+export default NotificationsUngrouped

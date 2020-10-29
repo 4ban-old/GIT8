@@ -2,12 +2,9 @@ import React from 'react';
 import styled from "styled-components";
 
 export const LoginContainer = styled.div`
-  position: fixed;
-  top: 0;
-  left: 0;
-  bottom: 0;
-  right: 0;
-  overflow: auto;
+  display: flex;
+  justify-content: center;
+  height: 100vh;
   color: ${(props) => props.theme.app.login.black};
   background-image: linear-gradient(
     to bottom right,
@@ -16,30 +13,16 @@ export const LoginContainer = styled.div`
   );
 `;
 
-
-export const LoginCenteredContainer = styled.div`
-  position: absolute;
-  margin: auto;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  width: 50%;
-  height: 85%;
-  ${"" /* border: 1px solid red; */}
-  text-align: center;
+export const LoginWrapper = styled.div`
+  flex: 0;
 `;
 
-export const PageContainer = styled.div`
+export const AppContainer = styled.div`
   display: flex;
   height: 100vh;
-  box-sizing: border-box;
-  overflow: hidden;
-  margin: 0;
-  padding: 0;
 `;
 
-export const MainContainer = styled.div`
+export const ContentContainer = styled.div`
   flex: 1;
 `;
 
@@ -50,18 +33,13 @@ export const SideBarContainer = styled.div`
 `;
 
 export const SideBarWrapper = styled.div`
-  display: flex;
-  flex-direction: column;
+  ${'' /* display: grid; */}
 `;
 
 export const NotificationsContainer = styled.div`
   display: flex;
   flex-direction: column;
   height: 100vh;
-  box-sizing: border-box;
-  overflow: hidden;
-  margin: 0;
-  padding: 0;
 `;
 
 export const TopBarContainer = styled.div`

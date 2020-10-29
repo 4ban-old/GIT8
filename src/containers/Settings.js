@@ -18,7 +18,6 @@ const Settings = () => {
   const per_page = useSelector(state => state.settingsReducer.per_page)
 
   const [updated_per_page, setUpdatedPerPage] = useState(per_page)
-  console.log(typeof updated_per_page, updated_per_page)
 
   return (
     <CenterWrapper>

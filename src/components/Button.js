@@ -17,6 +17,7 @@ export const LinkButton = styled(Link)`
   transition: all 0.15s;
   color: ${(props) => props.theme.app.text};
   border-radius: 0.3em;
+  border: 2px solid ${(props) => props.theme.app.text};
   ${'' /* flex: 1 0 auto; */}
   position: relative;
 
@@ -46,9 +47,9 @@ export const LinkButton = styled(Link)`
 
 // Login buttons: Shine and text
 export const LoginButton = styled.button`
+  display: block;
   padding: 0.5rem 2rem;
-  margin: 0.3rem;
-  line-height: 3;
+  margin: 0 auto;
   outline: none;
   border: none;
   border-radius: 100rem;
@@ -93,8 +94,5 @@ export const LoginButtonGreen = styled(LoginButton)`
 export const Button = (props) => {
   const { to, text, icon, onClick = null, badge = null } = props;
 
-  return (<LinkButton to={to} onClick={onClick} data-count={badge}>
-    {icon}
-    {text}
-  </LinkButton>);
+  return (<LinkButton to={to} onClick={onClick} data-count={badge}>{icon}{text}</LinkButton>);
 };

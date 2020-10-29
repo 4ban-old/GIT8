@@ -8,13 +8,12 @@ import { Notifications } from '@styled-icons/ionicons-outline/Notifications'
 import { Sync } from '@styled-icons/ionicons-outline/Sync'
 import { Exit } from "@styled-icons/ionicons-outline/Exit";
 
-
+import { SideBarWrapper } from "@/components/Containers";
 import { Button } from "@/components/Button";
 import { ThemeSwitch } from "@/components/ThemeSwitch";
 import { Title } from "@/components/Title";
 import { Avatar } from "@/components/Avatar";
 import { Divider } from "@/components/Divider";
-import { Spacer } from "@/components/Spacer";
 
 const SideBar = () => {
   const dispatch = useDispatch();
@@ -39,7 +38,7 @@ const SideBar = () => {
   }
 
   return (
-    <>
+    <SideBarWrapper>
       <Title size='1em' sidebar={true}/>
       <Avatar src={user?.avatar_url || ''} url={user?.html_url || ''} />
       <Button to='#' onClick={refreshNotifications} icon={<Sync size='32' />} />
@@ -47,11 +46,10 @@ const SideBar = () => {
       <ThemeSwitch />
       <Button to="/" icon={<Notifications size='32' />} badge={notifications?.length || null} />
       <Button to="/anywhere" text='404' />
-      <Spacer />
       <Divider />
       <Button to="/settings" icon={<Settings size='32'/>} />
       <Button to='#' icon={<Exit size='32' />} onClick={() => dispatch(logout())} />
-    </>
+    </SideBarWrapper>
   );
 };
 
