@@ -21,7 +21,8 @@ const SideBar = () => {
   const per_page = useSelector((state) => state.settingsReducer.per_page);
   const notifications = useSelector((state) => state.sessionReducer.notifications);
 
-  const badge = notifications?.length >= per_page ? `${notifications.length}+` : `${notifications.length}`;
+  // TODO how to handle second page?
+  const badge = notifications?.length % per_page === 0 ? `${notifications.length}` : `${notifications.length}+`;
 
   useEffect(() => {
     dispatch(getUser());
@@ -47,7 +48,7 @@ const SideBar = () => {
       <Button to='#' onClick={refreshNotifications} icon={<Sync size='32' />} />
       <Divider />
       <ThemeSwitch />
-      <Button to="/" icon={<Notifications size='32' />} badge={badge} />
+      <Button to="/" icon={<Notifications size='32' />} badge={parseInt(badge) > 99 ? '99+' : badge} />
       <Button to="/anywhere" text='404' />
       <Divider />
       <Button to="/settings" icon={<Settings size='32'/>} />

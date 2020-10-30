@@ -12,7 +12,7 @@ const NotificationsGrouped = (props) => {
     <>
       {Array.from(groupedNotifications).map(([name, notifications]) => {
         return (
-          <RepositoryItem name={name}  key={name}>
+          <RepositoryItem name={name} key={name}>
             {notifications.map((notification) => <NotificationItem notification={notification} key={notification.id} />)}
           </RepositoryItem>
         )
