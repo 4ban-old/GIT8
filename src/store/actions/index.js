@@ -1,5 +1,6 @@
 import api from "@/helpers/api.helpers";
 import store from "@/store";
+import { getUnique } from '@/helpers/utils'
 
 import * as types from "./types";
 
@@ -89,11 +90,10 @@ export const fetchNotifications = () => (dispatch) => {
     }
   }).then((response) => {
     dispatch(setRequestLimit(response.headers['x-ratelimit-remaining']))
-    console.log(response.data)
     if (response.data.length) {
       dispatch(setLastFetchAt(response.data[0].updated_at))
       const oldNotifications = store.getState().sessionReducer.notifications
-      dispatch(updateNotificationsList([...response.data, ...oldNotifications]))
+      dispatch(updateNotificationsList(getUnique([...response.data, ...oldNotifications], 'id')))
     }
     dispatch(setLoading(false))
   }).catch((error) => {

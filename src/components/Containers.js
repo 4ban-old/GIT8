@@ -33,7 +33,9 @@ export const SideBarContainer = styled.div`
 `;
 
 export const SideBarWrapper = styled.div`
-  ${'' /* display: grid; */}
+  display: grid;
+  grid-template-column: 1;
+  grid-template-row: 1;
 `;
 
 export const NotificationsContainer = styled.div`

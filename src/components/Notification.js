@@ -4,7 +4,7 @@ export const NotificationItem = (props) => {
   const { notification } = props
   return (
     <>
-      <div>I'm a notification {notification.id} {notification.subject.title}</div>
+      <div>I'm a notification {notification.id} {notification.subject.title} [{notification.updated_at}]</div>
     </>
   )
 };
