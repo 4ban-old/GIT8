@@ -27,6 +27,9 @@ export const setSound = (bool) => (dispatch) => {
 export const setParticipating = (bool) => (dispatch) => {
   localStorage.setItem("participating", bool);
   dispatch({ type: types.SET_PARTICIPATING, payload: bool })
+  dispatch(updateNotificationsList([]))
+  dispatch(setLastFetchAt("1970-01-01T01:01:00Z"))
+  dispatch(fetchNotifications())
 };
 export const setAutostart = (bool) => (dispatch) => {
   localStorage.setItem("autostart", bool);
@@ -36,6 +39,9 @@ export const setAutostart = (bool) => (dispatch) => {
 export const setPerPage = (per_page) => (dispatch) => {
   localStorage.setItem("per_page", per_page);
   dispatch({ type: types.SET_PER_PAGE, payload: per_page })
+  dispatch(updateNotificationsList([]))
+  dispatch(setLastFetchAt("1970-01-01T01:01:00Z"))
+  dispatch(fetchNotifications())
 };
 
 export const setTheme = (val) => (dispatch) => {

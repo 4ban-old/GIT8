@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { groupBy } from '@/helpers/utils'
 
+import { RepositoryItem, NotificationItem } from '@/components/Notification'
 
 const NotificationsGrouped = (props) => {
   const { notifications } = props
@@ -9,27 +10,15 @@ const NotificationsGrouped = (props) => {
 
   return (
     <>
-      <div>grouped notifications</div>
+      {Array.from(groupedNotifications).map(([name, notifications]) => {
+        return (
+          <RepositoryItem name={name}  key={name}>
+            {notifications.map((notification) => <NotificationItem notification={notification} key={notification.id} />)}
+          </RepositoryItem>
+        )
+      })}
     </>
   );
 };
 
-export default NotificationsGrouped
-
-{/* {Object.values(groupedNotifications).map((repoNotifications) => {
-        const repoSlug = repoNotifications[0].repository.full_name;
-
-        return (
-          <RepositoryNotifications
-            key={repoSlug}
-            hostname={hostname}
-            repoName={repoSlug}
-            repoNotifications={repoNotifications}
-          />
-        );
-      })} */}
-
-
-
-
-
+export default NotificationsGrouped;

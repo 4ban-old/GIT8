@@ -5,7 +5,7 @@ import Switch from "react-switch";
 import { setTheme } from "@/store/actions";
 
 import { useTheme } from 'rendition';
-import { Sun } from '@styled-icons/fa-solid/Sun'
+import { Sun } from '@styled-icons/evaicons-solid/Sun'
 import { Moon } from '@styled-icons/evaicons-solid/Moon'
 
 export const ThemeSwitch = () => {
@@ -13,7 +13,6 @@ export const ThemeSwitch = () => {
   const userTheme = useSelector((state) => state.settingsReducer.theme);
   const theme = useTheme()
 
-  console.log(theme)
 
   const updateTheme = () => {
     userTheme === 'dark' ? dispatch(setTheme('light')) : dispatch(setTheme('dark'))
@@ -27,9 +26,9 @@ export const ThemeSwitch = () => {
             onColor={theme.app.colors.dark}
             offHandleColor={theme.app.colors.dark}
             onHandleColor={theme.app.colors.yellow}
-            // handleDiameter={12}
-            height={22}
-            width={44}
+            handleDiameter={20}
+            height={20}
+            width={40}
           />)
 
 };
