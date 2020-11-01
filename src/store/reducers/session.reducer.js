@@ -4,7 +4,6 @@ const initialState = {
   loading: false,
   user: null,
   request_limit: null,
-  last_fetch_at: "1970-01-01T01:01:00Z",
   notifications: []
 };
 
@@ -24,11 +23,6 @@ export default function (state = initialState, action) {
       return {
         ...state,
         request_limit: action.payload,
-      };
-    case types.SET_LAST_FETCH_AT:
-      return {
-        ...state,
-        last_fetch_at: action.payload,
       };
     case types.UPDATE_NOTIFICATIONS_LIST:
       return {

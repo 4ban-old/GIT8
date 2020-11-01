@@ -28,8 +28,6 @@ export const setSound = (bool) => (dispatch) => {
 export const setParticipating = (bool) => (dispatch) => {
   localStorage.setItem("participating", bool);
   dispatch({ type: types.SET_PARTICIPATING, payload: bool })
-  dispatch(updateNotificationsList([]))
-  dispatch(setLastFetchAt("1970-01-01T01:01:00Z"))
   dispatch(fetchNotifications())
 };
 export const setAutostart = (bool) => (dispatch) => {
@@ -40,8 +38,6 @@ export const setAutostart = (bool) => (dispatch) => {
 export const setPerPage = (per_page) => (dispatch) => {
   localStorage.setItem("per_page", per_page);
   dispatch({ type: types.SET_PER_PAGE, payload: per_page })
-  dispatch(updateNotificationsList([]))
-  dispatch(setLastFetchAt("1970-01-01T01:01:00Z"))
   dispatch(fetchNotifications())
 };
 
@@ -58,11 +54,6 @@ export const setLoading = (bool) => ({
 export const setRequestLimit = (limit) => ({
   type: types.SET_REQUEST_LIMIT,
   payload: limit,
-});
-
-export const setLastFetchAt = (time) => ({
-  type: types.SET_LAST_FETCH_AT,
-  payload: time,
 });
 
 export const updateNotificationsList = (updatedList) => ({
@@ -86,14 +77,11 @@ export const fetchNotifications = () => (dispatch) => {
     params: {
       participating: store.getState().settingsReducer.participating,
       per_page: store.getState().settingsReducer.per_page,
-      since:  store.getState().sessionReducer.last_fetch_at,
     }
   }).then((response) => {
     dispatch(setRequestLimit(response.headers['x-ratelimit-remaining']))
     if (response.data.length) {
-      dispatch(setLastFetchAt(response.data[0].updated_at))
-      const oldNotifications = store.getState().sessionReducer.notifications
-      dispatch(updateNotificationsList(getUnique([...response.data, ...oldNotifications], 'id')))
+      dispatch(updateNotificationsList(getUnique(response.data, 'id')))
     }
     dispatch(setLoading(false))
   }).catch((error) => {

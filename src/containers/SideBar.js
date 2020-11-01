@@ -22,7 +22,7 @@ const SideBar = () => {
   const notifications = useSelector((state) => state.sessionReducer.notifications);
 
   // TODO how to handle second page?
-  const badge = notifications?.length % per_page === 0 ? `${notifications.length}` : `${notifications.length}+`;
+  const badge = notifications?.length % per_page === 0 ? `${notifications.length}+` : `${notifications.length}`;
 
   useEffect(() => {
     dispatch(getUser());
