@@ -8,7 +8,7 @@ import { Github } from "@styled-icons/boxicons-logos/";
 import LogoImage from "@/assets/images/app-icon.png";
 
 import { LoginContainer, LoginWrapper } from '@/components/Containers';
-import { Title } from "@/components/Title";
+import { LoginTitle } from "@/components/Title";
 import { Version } from "@/components/Version";
 import { Logo } from "@/components/Logo";
 import { LoginButtonPurple } from "@/components/Button";
@@ -25,7 +25,7 @@ const Login = () => {
       <LoginWrapper>
         <Logo src={LogoImage} width="256px" height="256px" />
         <Version />
-        <Title size='2em' />
+        <LoginTitle size='2em' />
         <LoginButtonPurple onClick={GitHubAuth}>
           Sign in with <Github size="32" />
         </LoginButtonPurple>
